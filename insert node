@@ -1,0 +1,26 @@
+class TreeNode:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.value = key
+
+def insert(root, key):
+    # If the tree is empty, return a new node
+    if root is None:
+        return TreeNode(key)
+
+    # Otherwise, recur down the tree
+    if key < root.value:
+        root.left = insert(root.left, key)
+    else:
+        root.right = insert(root.right, key)
+
+    # Return the (unchanged) node pointer
+    return root
+
+# Example Usage
+root = TreeNode(10)
+root = insert(root, 5)
+root = insert(root, 15)
+root = insert(root, 2)
+root = insert(root, 7)
